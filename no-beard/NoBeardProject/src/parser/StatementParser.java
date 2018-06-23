@@ -50,6 +50,10 @@ public class StatementParser extends Parser {
                 p = ParserFactory.create(PutParser.class);
                 parseSymbol(p);
                 break;
+            case IF:
+                p = ParserFactory.create(IfParser.class);
+                parseSymbol(p);
+                break;
                 
             default:
                 getErrorHandler().throwStatementExpected(getScanner().getCurrentToken().getSymbol().toString());

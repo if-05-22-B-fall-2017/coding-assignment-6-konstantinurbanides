@@ -20,6 +20,8 @@ public class Error {
         INTEGER_OVERFLOW(1, ErrorClass.LEXICAL, "Integer overflow"),
         INVALID_STRING(2, ErrorClass.LEXICAL, "Non terminated string constant"),
         FILE_NOT_FOUND(3, ErrorClass.LEXICAL, "Source file %s not found."),
+        //Selbsterstellte Errors
+        UNFINISHED_COMMENT(4, ErrorClass.LEXICAL, "Unfinished comment"),
         
         SYMBOL_EXPECTED(21, ErrorClass.SYNTAX, "%s0 expected but found %s1"),
         STATEMENT_EXPECTED(23, ErrorClass.SYNTAX, "%s is not a statement"),
@@ -41,6 +43,8 @@ public class Error {
         PROGRAM_ADDRESS_ERROR(101, ErrorClass.RUNTIME, "Address %s cannot be accessed in program memory"),
         DIVISION_BY_ZERO(102, ErrorClass.RUNTIME, "Division by zero"),
         OPERAND_RANGE_ERROR(103, ErrorClass.RUNTIME, "Operand is out of range");
+        
+        
 
         private final int errorNumber;
         private final ErrorClass errorClass;

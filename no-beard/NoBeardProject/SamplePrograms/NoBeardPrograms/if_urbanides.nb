@@ -1,0 +1,11 @@
+unit if_urbanides;
+# proof the IfStatment
+
+do
+    int a = 2;
+    int b = 3;
+    if(b != 0)
+        push(a/b);
+    else
+        put("DIVIDE BY 0 ERROR");
+done if_urbanides;
