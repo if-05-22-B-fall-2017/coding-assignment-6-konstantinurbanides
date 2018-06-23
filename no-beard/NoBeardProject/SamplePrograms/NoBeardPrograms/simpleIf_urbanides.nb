@@ -1,0 +1,9 @@
+unit simpleIf_urbanides
+do
+    int age = 12;
+    if
+    if(a > 12 && a < 20) 
+        put("You are a teenager!");
+    else
+        put("You are still a child!");
+done simpleIf_urbanides;

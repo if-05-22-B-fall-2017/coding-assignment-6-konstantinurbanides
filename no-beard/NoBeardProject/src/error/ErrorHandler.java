@@ -56,6 +56,10 @@ public class ErrorHandler {
     public void throwFileNotFound(String sourceFilePath) {
         raise(new Error(Error.ErrorType.FILE_NOT_FOUND, sourceFilePath));
     }
+    //Selbsterstellte Errors
+    public void throwUnfinishedComment() {
+        raise(new Error(Error.ErrorType.UNFINISHED_COMMENT));
+    }
 
     public void throwSymbolExpectedError(String expectedSymbol, String actualSymbol) {
         raise(new Error(Error.ErrorType.SYMBOL_EXPECTED, expectedSymbol, actualSymbol));

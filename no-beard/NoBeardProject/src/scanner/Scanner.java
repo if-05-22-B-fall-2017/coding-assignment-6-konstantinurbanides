@@ -243,8 +243,12 @@ public class Scanner {
                 break;
 
             case '(':
-                currentToken.setSymbol(Symbol.LPAR);
                 srcReader.nextChar();
+                if(srcReader.getCurrentChar() == '*'){
+                    nestedComment();
+                } else {
+                    currentToken.setSymbol(Symbol.LPAR);
+                }
                 break;
 
             case ')':
@@ -296,5 +300,30 @@ public class Scanner {
         while (srcReader.getCurrentChar() != -1 && srcReader.getCurrentChar() != '\n') {
             srcReader.nextChar();
         }
+    }
+    
+    private void nestedComment() {
+        int commentCounter = 1;
+        srcReader.nextChar();
+        
+        while(srcReader.getCurrentChar() != -1 && commentCounter != 0){
+            proofEnd:
+            if(srcReader.getCurrentChar() == '*'){
+                srcReader.nextChar();
+                if(srcReader.getCurrentChar() == ')'){
+                    commentCounter--;
+                    //break proofEnd;
+                }
+            }
+            
+            if(srcReader.getCurrentChar() == '('){
+                srcReader.nextChar();
+                if(srcReader.getCurrentChar() == '*'){
+                    commentCounter++;
+                }
+            }
+            srcReader.nextChar();
+        }
+        
     }
 }
